@@ -124,26 +124,19 @@ Q^\ast(s, a)=
 r_t+
 \gamma
 \max_{a'} Q^\ast(s_{t+1}, a')
-\mid
-s_t = s, a_t = a
-\right].
+\mid s_t = s, a_t = a
+\right]
 $$
 
 Алгоритм Q-learning использует стохастическое приближение:
+
 $$
 Q(s_t, a_t)
 \leftarrow
-Q(s_t, a_t)
-+
-\alpha
-\left(
-r_t
-+
-\gamma
-\max_{a'} Q(s_{t+1}, a')
--
-Q(s_t, a_t)
-\right).
+Q(s_t, a_t)+\alpha
+\left(r_t+\gamma
+\max_{a'} Q(s_{t+1}, a')-Q(s_t, a_t)
+\right)
 $$
 
 Особенность Q-learning — off-policy характер: обновление использует максимум по действиям, независимо от текущей поведенческой политики.
@@ -154,11 +147,9 @@ $$
 \mathbb{E}
 \left[
 \left(
-r_t
-+
+r_t+
 \gamma
-\max_{a'} Q_{\theta^-}(s_{t+1}, a')
--
+\max_{a'} Q_{\theta^-}(s_{t+1}, a')-
 Q_{\theta}(s_t, a_t)
 \right)^2
 \right].
@@ -178,13 +169,9 @@ $$
 - критик — функция ценности $V_{w}(s)$ или $Q_{w}(s, a)$.
 
 Критик обучается минимизацией TD-ошибки:
+
 $$
-\delta_t=
-r_t
-+
-\gamma V_w(s_{t+1})
--
-V_w(s_t).
+\delta_t=r_t+\gamma V_w(s_{t+1})-V_w(s_t)
 $$
 
 Актор обновляется по градиенту:
@@ -196,7 +183,7 @@ $$
 \nabla_{\theta}
 \ln \pi_{\theta}(a_t \mid s_t)
 \delta_t
-\right].
+\right]
 $$
 
 Таким образом, критик снижает дисперсию оценки градиента, а актор напрямую оптимизирует политику
