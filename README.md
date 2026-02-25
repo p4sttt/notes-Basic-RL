@@ -1,7 +1,7 @@
 ---
 title: "README"
 date: 2026-02-24
-draft: false
+draft: true
 ---
 # Базовый RL
 
