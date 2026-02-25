@@ -1,7 +1,8 @@
 ---
 title: Model-free learning
-draft: false
 slug: model-free
+date: 2026-02-25
+draft: false
 ---
 
 # Введение
