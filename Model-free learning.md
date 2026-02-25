@@ -1,6 +1,6 @@
 ---
 title: Model-free learning
-draft: true
+draft: false
 slug: model-free
 ---
 
