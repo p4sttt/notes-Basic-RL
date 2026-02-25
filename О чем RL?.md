@@ -1,5 +1,6 @@
 ---
 title: "What RL is about?"
+slug: "what-rl-is-about"
 date: 2026-02-24
 draft: false
 ---
